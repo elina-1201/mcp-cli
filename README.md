@@ -37,13 +37,13 @@ The API key is free — no payment method or paid plan is required.
 1. Create or edit the `.env` file in the project root and verify that the following variables are set correctly:
 
 ```
-GEMINI_MODEL="gemini-3.6-flash"  # Enter your Google AI Studio model
+GEMINI_MODEL="gemini-3.1-flash-lite"  # Enter your Google AI Studio model
 GEMINI_API_KEY=""                # Enter your Google AI Studio API key
 ```
 
 2. Paste the API key you copied in Step 1 as the value of `GEMINI_API_KEY`.
 
-> **Note:** Models can become unavailable over time. If the model set in `GEMINI_MODEL` stops working (e.g. returns an error or is no longer listed), replace it with another currently available model. You can find the full list of available models on the [Google AI Studio models page](https://ai.google.dev/gemini-api/docs/models).
+> **Note:** Models can become unavailable over time, and you may also reach request rate limits. If the model set in `GEMINI_MODEL` stops working (e.g. returns an error or is no longer listed), or if you hit the rate limit, replace it with another currently available model. You can find the full list of available models on the [Google AI Studio models page](https://ai.google.dev/gemini-api/docs/models).
 
 ### Step 3: Install dependencies
 
@@ -110,14 +110,34 @@ Run it with:
 
 ```bash
 uv run test_api.py            # with uv
-# or
+```
+ or
+```bash
 .venv/bin/python test_api.py  # without uv
 ```
 
 If a response is printed, the key works. To go a step further, you can open your [Google AI Studio dashboard](https://aistudio.google.com/) and confirm that a request was sent from your key.
 
+## Development
+
+### Adding New Documents
+
+Edit the `mcp_server.py` file to add new documents to the `docs` dictionary.
+
+### Implementing MCP Features
+
+To fully implement the MCP features:
+
+1. Complete the TODOs in `mcp_server.py`
+2. Implement the missing functionality in `mcp_client.py`
+
+### Linting and Typing Check
+
+There are no lint or type checks implemented.
+
 ## Usage
 
+> **Note:** The application works as described here once you apply the changes provided in the course.
 ### Basic Interaction
 
 Simply type your message and press Enter to chat with the model.
@@ -139,20 +159,3 @@ Use the / prefix to execute commands defined in the MCP server:
 ```
 
 Commands will auto-complete when you press Tab.
-
-## Development
-
-### Adding New Documents
-
-Edit the `mcp_server.py` file to add new documents to the `docs` dictionary.
-
-### Implementing MCP Features
-
-To fully implement the MCP features:
-
-1. Complete the TODOs in `mcp_server.py`
-2. Implement the missing functionality in `mcp_client.py`
-
-### Linting and Typing Check
-
-There are no lint or type checks implemented.

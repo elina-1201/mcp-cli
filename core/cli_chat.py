@@ -55,7 +55,7 @@ class CliChat(Chat):
         command = words[0].replace("/", "")
 
         messages = await self.doc_client.get_prompt(
-            command, {"doc_id": words[1]}
+            command, {"doc_id": words[1].lstrip("@")}
         )
 
         self.messages += convert_prompt_messages_to_message_params(messages)
