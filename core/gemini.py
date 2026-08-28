@@ -13,8 +13,24 @@ class Gemini:
     def add_assistant_message(self, messages: list, message):
         parts = []
         for part in message.parts:
-            if part.text:
-                parts.append({"text": part.text})
+            if part.thought:
+                # Preserve the model's reasoning and its signature. Thinking
+                # models require this to be echoed back on the next request.
+                parts.append(
+                    {
+                        "thought": True,
+                        "text": part.text,
+                        "thought_signature": part.thought_signature,
+                    }
+                )
+            elif part.text:
+                parts.append(
+                    {
+                        "text": part.text,
+                        "thought_signature": part.thought_signature,
+                    }
+                )
+
             if part.function_call:
                 fc = part.function_call
                 parts.append(
@@ -23,7 +39,8 @@ class Gemini:
                             "id": fc.id,
                             "name": fc.name,
                             "args": fc.args or {},
-                        }
+                        },
+                        "thought_signature": part.thought_signature,
                     }
                 )
         messages.append({"role": "assistant", "content": parts})
@@ -41,8 +58,21 @@ class Gemini:
         for item in content:
             if isinstance(item, str):
                 parts.append(types.Part(text=item))
+            elif "thought" in item:
+                parts.append(
+                    types.Part(
+                        thought=True,
+                        text=item.get("text"),
+                        thought_signature=item.get("thought_signature"),
+                    )
+                )
             elif "text" in item:
-                parts.append(types.Part(text=item["text"]))
+                parts.append(
+                    types.Part(
+                        text=item["text"],
+                        thought_signature=item.get("thought_signature"),
+                    )
+                )
             elif "function_call" in item:
                 fc = item["function_call"]
                 parts.append(
@@ -51,7 +81,8 @@ class Gemini:
                             id=fc.get("id"),
                             name=fc["name"],
                             args=fc.get("args", {}),
-                        )
+                        ),
+                        thought_signature=item.get("thought_signature"),
                     )
                 )
             elif "function_response" in item:
