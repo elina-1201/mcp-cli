@@ -118,26 +118,8 @@ uv run test_api.py            # with uv
 
 If a response is printed, the key works. To go a step further, you can open your [Google AI Studio dashboard](https://aistudio.google.com/) and confirm that a request was sent from your key.
 
-## Development
-
-### Adding New Documents
-
-Edit the `mcp_server.py` file to add new documents to the `docs` dictionary.
-
-### Implementing MCP Features
-
-To fully implement the MCP features:
-
-1. Complete the TODOs in `mcp_server.py`
-2. Implement the missing functionality in `mcp_client.py`
-
-### Linting and Typing Check
-
-There are no lint or type checks implemented.
-
 ## Usage
 
-> **Note:** The application works as described here once you apply the changes provided in the course.
 ### Basic Interaction
 
 Simply type your message and press Enter to chat with the model.
