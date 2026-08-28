@@ -11,7 +11,28 @@ MCP Chat is a command-line interface application that enables interactive chat c
 
 ## Setup
 
-### Step 1: Configure the environment variables
+### Step 1: Create a Google AI Studio API key
+
+The API key is free — no payment method or paid plan is required.
+
+1. Go to [Google AI Studio](https://aistudio.google.com/) and sign in with your Google account.
+
+2. Click **Get API key** (or open the [API keys page](https://aistudio.google.com/apikey) directly).
+
+3. Click **Create API key**.
+
+4. If you haven't used Google Cloud before, you may be asked to select or create a Google Cloud project. Pick the suggested default project (or create a new one) and continue.
+
+5. Copy the generated API key and keep it safe. It is shown only once at creation time (you can still view or delete it later from the API keys page).
+
+> **Tip:** The key is a secret. Never commit it to a repository or share it publicly. The `.env` file you create in Step 2 is already listed in `.gitignore`.
+
+*If you had problem following the text setup above, here's a video walkthrough:*
+
+📺 **[Watch the tutorial on YouTube](https://youtu.be/mtpIhr21mHA)**
+
+
+### Step 2: Configure the environment variables
 
 1. Create or edit the `.env` file in the project root and verify that the following variables are set correctly:
 
@@ -20,7 +41,11 @@ GEMINI_MODEL="gemini-3.6-flash"  # Enter your Google AI Studio model
 GEMINI_API_KEY=""                # Enter your Google AI Studio API key
 ```
 
-### Step 2: Install dependencies
+2. Paste the API key you copied in Step 1 as the value of `GEMINI_API_KEY`.
+
+> **Note:** Models can become unavailable over time. If the model set in `GEMINI_MODEL` stops working (e.g. returns an error or is no longer listed), replace it with another currently available model. You can find the full list of available models on the [Google AI Studio models page](https://ai.google.dev/gemini-api/docs/models).
+
+### Step 3: Install dependencies
 
 #### Option 1: Setup with uv (Recommended)
 
