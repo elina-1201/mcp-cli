@@ -2,6 +2,8 @@
 
 MCP Chat is a command-line interface application that enables interactive chat capabilities with AI models through the Google AI Studio (Gemini) API. The application supports document retrieval, command-based prompts, and extensible tool integrations via the MCP (Model Control Protocol) architecture.
 
+To see the fully implemented version, check out the [completed project](https://github.com/elina-1201/mcp-cli/tree/project-complete).
+
 > This is a modified version of the  [MCP project code](https://cc.sj-cdn.net/instructor/4hdejjwplbrm-anthropic/assets/1773092562/cli_project.zip?response-content-disposition=attachment&Expires=1787913906&Signature=I9Zj6JMKSDSyam2Vr2LX4wPpbeHpJA2mTqczFTUh02yPEYeDqj3XRagxRDWiIx7jJAZv0H71DuojelCrfj5fmRprHq3Pm75GUUZ4tbt740EvduerVeyZQJ8sptImxPY4BcnL1ZpwPVL6mBEK~Ho8NyvGiP6GNRppXQZX6mr0ZsRFKx3llnzXylF5KyrRGQIhI9TdJx4FE6LRRxHRlBp4VkXRXH02bXDwSYqEtcV9Nl9FQoFdivGREwSc1WQMiBgu0SKiKzpyl48GPcIJbw-VuCdH7yfUyIohrj490eMrPcISMMxd~CS1LFL9Ktgwq8NGLrfkyUAHINzE5HpSuprTFQ__&Key-Pair-Id=APKAI3B7HFD2VYJQK4MQ) from Anthropic's course, [Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol/),  edited to use a Google AI Studio API key instead of Claude API key.
 
 ## Prerequisites
@@ -138,6 +140,9 @@ There are no lint or type checks implemented.
 ## Usage
 
 > **Note:** The application works as described here once you apply the changes provided in the course.
+>
+> Or, you can check out the [completed project](https://github.com/elina-1201/mcp-cli/tree/project-complete)
+
 ### Basic Interaction
 
 Simply type your message and press Enter to chat with the model.
