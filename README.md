@@ -97,6 +97,25 @@ pip install google-genai python-dotenv prompt-toolkit "mcp[cli]==1.8.0"
 python main.py
 ```
 
+### Step 4: Test your API key
+
+Before running the full chat, you can verify that your API key and model are working with the included `test_api.py` script.
+
+The test loads `.env`, checks that both variables are set, and makes a single minimal query to the Gemini API — it asks the model to just say "OK" and prints the response. This confirms two things:
+
+- Your API key is valid and the request actually reaches Google.
+- The model set in `GEMINI_MODEL` exists and is correct.
+
+Run it with:
+
+```bash
+uv run test_api.py            # with uv
+# or
+.venv/bin/python test_api.py  # without uv
+```
+
+If a response is printed, the key works. To go a step further, you can open your [Google AI Studio dashboard](https://aistudio.google.com/) and confirm that a request was sent from your key.
+
 ## Usage
 
 ### Basic Interaction
